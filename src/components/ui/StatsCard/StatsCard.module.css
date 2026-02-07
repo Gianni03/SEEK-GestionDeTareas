@@ -41,26 +41,25 @@
   font-size: 1.5rem;
 }
 
-/* Variants */
 .default .iconWrapper {
   background-color: rgba(0, 0, 0, 0.04);
   color: var(--foreground);
 }
 
 .progress .iconWrapper {
-  background-color: rgba(233, 138, 21, 0.1);
+  background-color: rgba(233, 138, 21, 0.3);
   color: var(
     --primary
-  ); /* Using Primary (Orange) to mimic the reference image "In Progress" style */
+  );
 }
 
 .completed .iconWrapper {
-  background-color: rgba(37, 211, 102, 0.1);
+  background-color: rgba(37, 211, 102, 0.3);
   color: var(--completed);
 }
 
 @media (prefers-color-scheme: dark) {
   .default .iconWrapper {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.3);
   }
 }

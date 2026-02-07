@@ -6,6 +6,7 @@ import StatsCard from '@/components/ui/StatsCard/StatsCard';
 import TaskCard from '@/features/task/TaskCard/TaskCard';
 import { useTaskStore } from '@/store/useTaskStore';
 import styles from './page.module.css';
+import { ListChecks, Clock , LayoutList} from 'lucide-react';
 
 export default function DashboardPage() {
   const tasks = useTaskStore((state) => state.tasks);
@@ -30,9 +31,9 @@ export default function DashboardPage() {
         </header>
 
         <section className={styles.statsGrid}>
-          <StatsCard title="Total" value={stats.total} icon="📊" />
-          <StatsCard title="En Progreso" value={stats.inProgress} icon="⏳" type="progress" />
-          <StatsCard title="Completadas" value={stats.completed} icon="✅" type="completed" />
+          <StatsCard title="Total" value={stats.total} icon={<LayoutList />} />
+          <StatsCard title="En Progreso" value={stats.inProgress} icon={<Clock />} type="progress" />
+          <StatsCard title="Completadas" value={stats.completed} icon={<ListChecks />} type="completed" />
         </section>
 
         <section className={styles.taskGrid}>
