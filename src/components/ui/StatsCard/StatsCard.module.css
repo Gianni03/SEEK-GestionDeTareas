@@ -1,0 +1,66 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 200px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+/* Variants */
+.default .iconWrapper {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--foreground);
+}
+
+.progress .iconWrapper {
+  background-color: rgba(233, 138, 21, 0.1);
+  color: var(
+    --primary
+  ); /* Using Primary (Orange) to mimic the reference image "In Progress" style */
+}
+
+.completed .iconWrapper {
+  background-color: rgba(37, 211, 102, 0.1);
+  color: var(--completed);
+}
+
+@media (prefers-color-scheme: dark) {
+  .default .iconWrapper {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
