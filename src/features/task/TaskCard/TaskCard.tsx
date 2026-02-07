@@ -6,9 +6,10 @@ import styles from './TaskCard.module.css';
 
 interface TaskCardProps {
   task: Task;
+  handleOpenEdit: (task: Task) => void;
 }
 
-export default function TaskCard({ task }: TaskCardProps) {
+export default function TaskCard({ task, handleOpenEdit }: TaskCardProps) {
   const deleteTask = useTaskStore((state) => state.deleteTask);
 
   return (
@@ -18,7 +19,7 @@ export default function TaskCard({ task }: TaskCardProps) {
           {task.status}
         </span>
         <div className={styles.actions}>
-          <button className={styles.iconBtn} aria-label="Editar">✏️</button>
+          <button className={styles.iconBtn} aria-label="Editar" onClick={() => handleOpenEdit(task)}>✏️</button>
           <button 
             className={styles.iconBtnDanger} 
             onClick={() => deleteTask(task.id)}
