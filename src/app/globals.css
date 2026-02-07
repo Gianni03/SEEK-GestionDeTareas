@@ -1,11 +1,20 @@
 :root {
+  --primary: #E98A15;
+  --primary-hover: #f1cfa4;
+  --danger: #DB162F;
   --background: #ffffff;
   --foreground: #171717;
+  --border: #eaeaea;
+  --radius: 8px;
+
+  --pending: #FFC107;
+  --in-progress: #2196F3;
+  --completed: #25D366;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #252525;
     --foreground: #ededed;
   }
 }
