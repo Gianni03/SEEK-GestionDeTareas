@@ -1,37 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SEEK - Sistema de Gestión de Tareas
 
-## Getting Started
+Este proyecto es una aplicación de gestión de tareas desarrollada como parte de un reto técnico. Implementa una arquitectura limpia, gestión de estado centralizada, autenticación simulada y un diseño responsivo.
 
-First, run the development server:
+## 🚀 Características
+
+- **Autenticación**: Inicio de sesión con Nombre y Correo electrónico. Incluye validación de integridad (un nombre no puede usarse con otro correo una vez registrado).
+- **Dashboard de Tareas**: Vista general con estadísticas (Total, En Progreso, Completadas).
+- **CRUD de Tareas**: Creación, edición, cambio de estado y eliminación de tareas.
+- **Seguridad de Rutas**: Protección de rutas privadas (Dashboard) y redirección automática.
+- **Diseño Premium**: Interfaz moderna, responsiva y con micro-animaciones usando CSS Vanilla.
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
+- **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
+- **Gestión de Estado**: [Zustand](https://zustand-demo.pmnd.rs/)
+- **Iconografía**: [Lucide React](https://lucide.dev/)
+- **Testing**: [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+## 📋 Requisitos Previos
+
+- **Node.js**: Versión 18.0.0 o superior recomendada.
+- **npm**: Versión 9.0.0 o superior.
+
+## ⚙️ Instalación y Configuración
+
+1.  **Clonar el repositorio**:
+
+    ```bash
+    git clone https://github.com/gianni03/seek-gestion-de-tareas.git
+    cd seek-gestion-de-tareas
+    ```
+
+2.  **Instalar dependencias**:
+    ```bash
+    npm install
+    ```
+
+## 🏃 Ejecución
+
+### Modo Desarrollo
+
+Para iniciar el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+La aplicación estará disponible en [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Construcción para Producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para generar el bundle optimizado:
 
-## Learn More
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🧪 Pruebas (Testing)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Para ejecutar la suite de pruebas unitarias:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm test
+```
 
-## Deploy on Vercel
+Para ver la cobertura de los tests:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm test -- --coverage
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# SEEK-GestionDeTareas
+## 🏗️ Arquitectura del Proyecto
+
+El proyecto sigue una estructura modular basada en funcionalidades (features) para escalabilidad:
+
+- `src/app`: Definición de rutas y páginas (Next.js App Router).
+- `src/components/ui`: Componentes de interfaz de usuario reutilizables y atómicos.
+- `src/features`: Lógica de negocio y componentes específicos de cada funcionalidad (ej. `task`).
+- `src/services`: Capa de servicios para comunicación con la API (mocks en este caso).
+- `src/store`: Gestión de estado global con Zustand.
+- `src/types`: Definiciones de tipos TypeScript globales.
+- `src/utils`: Funciones de utilidad y helpers.
+
+---
+
+Desarrollado para el reto técnico de SEEK.
