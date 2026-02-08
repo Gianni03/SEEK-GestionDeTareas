@@ -33,18 +33,30 @@
 }
 
 .newBtn {
-  background-color: var(--text-primary);
-  color: var(--text-secondary);
+  background-color: var(--primary);
+  color: white;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius);
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .newBtn:hover {
-  opacity: 0.9;
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.newBtn:active {
+  transform: translateY(0);
 }
 
 /* Stats Cards Grid */

@@ -1,10 +1,14 @@
+'use client';
 
-import styles from "./page.module.css";
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
-  return (
-      <main className={styles.main}>
-       <h1>SEEK - Gestión de Tareas</h1>
-      </main>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push('/login');
+  }, [router]);
+
+  return null;
 }

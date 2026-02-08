@@ -1,6 +1,18 @@
+'use client';
+
+import { useAuthStore } from '@/store/useAuthStore';
+import { useRouter } from 'next/navigation';
 import styles from './Header.module.css';
 
 export default function Header() {
+  const { user, logout } = useAuthStore();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout();
+    router.push('/login');
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.leftSection}>
@@ -65,8 +77,12 @@ export default function Header() {
         <h1 className={styles.title}>Gestión de tareas</h1>
       </div>
       <div className={styles.rightSection}>
-        <span className={styles.userName}>User name</span>
-        <button className={styles.logoutButton}>Salir</button>
+        <span className={styles.userName}>
+          {user?.name || user?.email || 'Usuario'}
+        </span>
+        <button onClick={handleLogout} className={styles.logoutButton}>
+          Salir
+        </button>
       </div>
     </header>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/ui/Header/Header';
 import Footer from '@/components/ui/Footer/Footer';
 import StatsCard from '@/components/ui/StatsCard/StatsCard';
@@ -8,14 +8,24 @@ import Modal from '@/components/ui/Modal/Modal';
 import TaskCard from '@/features/task/TaskCard/TaskCard';
 import TaskForm from '@/features/task/TaskForm/TaskForm';
 import { useTaskStore } from '@/store/useTaskStore';
-import { ListChecks, Clock, LayoutList } from 'lucide-react';
+import { useAuthStore } from '@/store/useAuthStore';
+import { useRouter } from 'next/navigation';
+import { ListChecks, Clock, LayoutList, Plus } from 'lucide-react';
 import { Task } from '@/types';
 import styles from './page.module.css';
 
 export default function DashboardPage() {
   const tasks = useTaskStore((state) => state.tasks);
+  const { user, token } = useAuthStore();
+  const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState<Task | null>(null);
+
+  useEffect(() => {
+    if (!token && !user) {
+      router.push('/login');
+    }
+  }, [user, token, router]);
 
   const stats = {
     total: tasks.length,
@@ -49,7 +59,8 @@ export default function DashboardPage() {
             <p>Gestiona tus prioridades diarias.</p>
           </div>
           <button className={styles.newBtn} onClick={handleOpenCreate}>
-            + Nueva Tarea
+            <Plus size={20} />
+            Nueva Tarea
           </button>
         </header>
 
