@@ -16,7 +16,6 @@ export default function TaskCard({ task, handleOpenEdit }: TaskCardProps) {
     pending: 'Pendiente',
     'in-progress': 'En Progreso',
     completed: 'Completada',
-    todo: 'Pendiente', // Fallback for legacy data
   };
 
   return (
