@@ -56,9 +56,9 @@
 }
 
 .taskGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
 .empty {
@@ -80,7 +80,8 @@
     width: 100%;
   }
 
-  .statsGrid {
+  .statsGrid,
+  .taskGrid {
     grid-template-columns: 1fr; /* Stack vertically on mobile */
   }
 }

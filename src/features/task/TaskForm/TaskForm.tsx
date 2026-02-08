@@ -28,7 +28,7 @@ export default function TaskForm({ taskToEdit, onSuccess }: TaskFormProps) {
     if (taskToEdit) {
       updateTaskStatus(taskToEdit.id, status);
     } else {
-      addTask(title, description);
+      addTask(title, description, status);
     }
 
     onSuccess();

@@ -1,10 +1,10 @@
-import {create } from "zustand";
+import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import  { Task, TaskStatus } from '@/types'
+import { Task, TaskStatus } from '@/types';
 
 interface TaskState {
   tasks: Task[];
-  addTask: (title: string, description: string) => void;
+  addTask: (title: string, description: string, status?: TaskStatus) => void;
   deleteTask: (id: string) => void;
   updateTaskStatus: (id: string, status: TaskStatus) => void;
 }
@@ -12,17 +12,17 @@ interface TaskState {
 export const useTaskStore = create<TaskState>()(
   persist(
     (set) => ({
-      tasks: [], 
+      tasks: [],
 
-      addTask: (title, description) =>
+      addTask: (title, description, status = 'pending') =>
         set((state) => ({
           tasks: [
             ...state.tasks,
             {
-              id: crypto.randomUUID(), 
+              id: crypto.randomUUID(),
               title,
               description,
-              status: 'pending',
+              status,
               createdAt: new Date().toISOString(),
             },
           ],
@@ -41,7 +41,7 @@ export const useTaskStore = create<TaskState>()(
         })),
     }),
     {
-      name: 'task-storage', 
+      name: 'task-storage',
     }
   )
 );
