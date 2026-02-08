@@ -11,21 +11,30 @@ import { useTaskStore } from '@/store/useTaskStore';
 import { useAuthStore } from '@/store/useAuthStore';
 import { useRouter } from 'next/navigation';
 import { ListChecks, Clock, LayoutList, Plus } from 'lucide-react';
+import Loader from '@/components/ui/Loader/Loader';
 import { Task } from '@/types';
 import styles from './page.module.css';
 
 export default function DashboardPage() {
   const tasks = useTaskStore((state) => state.tasks);
-  const { user, token } = useAuthStore();
+  const { user, token, isHydrated } = useAuthStore();
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState<Task | null>(null);
 
   useEffect(() => {
+    if (!isHydrated) return;
+
     if (!token && !user) {
       router.push('/login');
     }
-  }, [user, token, router]);
+  }, [user, token, router, isHydrated]);
+
+  if (!isHydrated) {
+    return <Loader />;
+  }
+
+  if (!user) return null;
 
   const stats = {
     total: tasks.length,
