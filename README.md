@@ -2,7 +2,7 @@
 
 Este proyecto es una aplicación de gestión de tareas desarrollada como parte de un reto técnico. Implementa una arquitectura limpia, gestión de estado centralizada, autenticación simulada y un diseño responsivo.
 
-## 🚀 Características
+## Características
 
 - **Autenticación**: Inicio de sesión con Nombre y Correo electrónico. Incluye validación de integridad (un nombre no puede usarse con otro correo una vez registrado).
 - **Dashboard de Tareas**: Vista general con estadísticas (Total, En Progreso, Completadas).
@@ -10,7 +10,7 @@ Este proyecto es una aplicación de gestión de tareas desarrollada como parte d
 - **Seguridad de Rutas**: Protección de rutas privadas (Dashboard) y redirección automática.
 - **Diseño Premium**: Interfaz moderna, responsiva y con micro-animaciones usando CSS Vanilla.
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
 - **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
@@ -18,12 +18,12 @@ Este proyecto es una aplicación de gestión de tareas desarrollada como parte d
 - **Iconografía**: [Lucide React](https://lucide.dev/)
 - **Testing**: [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
-## 📋 Requisitos Previos
+## Requisitos Previos
 
 - **Node.js**: Versión 18.0.0 o superior recomendada.
 - **npm**: Versión 9.0.0 o superior.
 
-## ⚙️ Instalación y Configuración
+## Instalación y Configuración
 
 1.  **Clonar el repositorio**:
 
@@ -37,7 +37,7 @@ Este proyecto es una aplicación de gestión de tareas desarrollada como parte d
     npm install
     ```
 
-## 🏃 Ejecución
+## Ejecución
 
 ### Modo Desarrollo
 
@@ -58,7 +58,7 @@ npm run build
 npm start
 ```
 
-## 🧪 Pruebas (Testing)
+## Pruebas (Testing)
 
 Para ejecutar la suite de pruebas unitarias:
 
@@ -72,7 +72,7 @@ Para ver la cobertura de los tests:
 npm test -- --coverage
 ```
 
-## 🏗️ Arquitectura del Proyecto
+## Arquitectura del Proyecto
 
 El proyecto sigue una estructura modular basada en funcionalidades (features) para escalabilidad:
 
@@ -83,6 +83,18 @@ El proyecto sigue una estructura modular basada en funcionalidades (features) pa
 - `src/store`: Gestión de estado global con Zustand.
 - `src/types`: Definiciones de tipos TypeScript globales.
 - `src/utils`: Funciones de utilidad y helpers.
+
+
+
+## Documentación consultada
+
+
+- [Tsdocs](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [Lucide React](https://lucide.dev/guide/)
+- [Jest](https://jestjs.io/docs)
+- [jes Functions](https://jestjs.io/docs/expect)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
 ---
 
