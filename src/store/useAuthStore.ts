@@ -6,7 +6,7 @@ import { mockLoginApi } from '@/services/authService';
 interface AuthState {
   token: string | null;
   user: User | null;
-  login: (email: string) => Promise<void>;
+  login: (name: string, email: string) => Promise<void>;
   logout: () => void;
 }
 
@@ -16,8 +16,8 @@ export const useAuthStore = create<AuthState>()(
       token: null,
       user: null,
 
-      login: async (email) => {
-        const response = await mockLoginApi(email);
+      login: async (name, email) => {
+        const response = await mockLoginApi(name, email);
         set({ token: response.token, user: response.user });
       },
 

@@ -8,7 +8,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const login = useAuthStore((state) => state.login);
   const router = useRouter();
@@ -16,8 +18,19 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await login(email);
-    router.push('/dashboard');
+    setError(null);
+    try {
+      await login(name, email);
+      router.push('/dashboard');
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError('Error al iniciar sesión');
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -26,6 +39,18 @@ export default function LoginPage() {
         <h1 className={styles.title}>Estrategia, diseño e innovación.</h1>
 
         <form onSubmit={handleSubmit}>
+          {error && <div className={styles.error}>{error}</div>}
+
+          <Input
+            label="Nombre"
+            type="text"
+            id="name"
+            placeholder="Tu nombre"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
           <Input
             label="Correo electrónico"
             type="email"

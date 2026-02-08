@@ -41,6 +41,17 @@
   gap: 0.5rem;
 }
 
+.error {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid #ff4d4f;
+  color: #ff4d4f;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 .rightSide {
   background-color: #000;
   display: flex;
