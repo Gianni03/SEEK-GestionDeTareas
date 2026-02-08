@@ -3,6 +3,14 @@
 import { ReactNode } from 'react';
 import styles from './Modal.module.css';
 
+/**
+ * @interface ModalProps
+ * @description Interface para representar las propiedades de un modal
+ * @property {boolean} isOpen - Estado de apertura del modal
+ * @property {() => void} onClose - Función para cerrar el modal
+ * @property {string} title - Título del modal
+ * @property {ReactNode} children - Contenido del modal
+ */
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -10,6 +18,12 @@ interface ModalProps {
   children: ReactNode;
 }
 
+/**
+ * @function Modal
+ * @description Componente para mostrar un modal
+ * @param {ModalProps} props - Propiedades del componente
+ * @returns {JSX.Element} - Componente de modal
+ */
 export default function Modal({ isOpen, onClose, title, children }: ModalProps) {
   if (!isOpen) return null;
 

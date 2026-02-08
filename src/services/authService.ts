@@ -1,6 +1,13 @@
 import { AuthResponse, User } from '@/types';
 import wait from '@/utils/wait';
 
+/**
+ * @function mockLoginApi
+ * @description Simula una petición de login a una API
+ * @param {string} name - Nombre del usuario
+ * @param {string} email - Correo electrónico del usuario
+ * @returns {Promise<AuthResponse>} - Respuesta de la petición
+ */
 export const mockLoginApi = async (
   name: string,
   email: string
